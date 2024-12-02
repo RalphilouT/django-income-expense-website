@@ -15,9 +15,13 @@
 
 .showPasswordToggle {
   cursor: pointer;
-  transition: all;
+  /* transition: all; */
 }
 
-.showPasswordToggle:hover {
+/* .showPasswordToggle:hover {
   transform: scale(1.2);
-}
+} */
+
+/* .showPasswordTog{
+    cursor: pointer;
+} */
