@@ -14,25 +14,13 @@
   </head>
   <body>
 
-    <main role="main" class="col-md-12">
-        <div class="card">
-
-        </div>
-
-
+    <main role="main">
+        
+      {% block content %}
       
-      <div class="col-md-3">
-      </div>
-      <div class="col-md-6">
-            {% block content %}
-            
-            {% endblock %}
-      </div>
-      <div class="col-md-3">
-
-      </div>
+      {% endblock %}
       
-
+    
 
     </main>
   </div>
