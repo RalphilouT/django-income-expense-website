@@ -6,8 +6,11 @@ const emailFeedbackArea=document.querySelector('.emailFeedBackArea');
 const usernamesuccessOutput = document.querySelector('.usernamesuccessOutput');
 const emailsuccessOutput = document.querySelector('.emailsuccessOutput');
 const showPasswordTog = document.querySelector('.showPasswordToggle');
-const passwordField=document.querySelector('#passwordField');
-
+const passwordField= document.querySelector('#passwordField');
+const submitButton= document.querySelector('.submit-btn');
+let emailValid = true;
+let passwordValid = true;
+let usernameValid = true;
 const handleToggleInput = (e) => {
     if(showPasswordTog.textContent==='SHOW'){
         showPasswordTog.textContent = "'HIDE";
@@ -31,6 +34,18 @@ emailField.addEventListener('keyup', (e) =>{
 
     emailField.classList.remove('is-invalid'); //bootstrap
     emailFeedbackArea.style.display="none";
+    
+    // submitButton.disabled = false;
+
+    //Email is valid until told otherwise
+    emailValid = true;
+
+    // If one text is invalid, disable button
+    if(usernameValid == false || usernameValid == false){
+        submitButton.disabled = true;
+    }else{
+        submitButton.disabled = false;
+    }
 
     if(emailVal.length > 0)
     {
@@ -47,6 +62,8 @@ emailField.addEventListener('keyup', (e) =>{
 
             // show error in frontend
             if(data.email_error){
+                emailValid = false;
+                submitButton.disabled = true;
                 emailField.classList.add('is-invalid'); //bootstrap
                 emailFeedbackArea.style.display="block";
                 emailFeedbackArea.innerHTML=`<p> ${data.email_error} </p>`;
@@ -68,6 +85,17 @@ usernameField.addEventListener('keyup', (e) => {
     usernameField.classList.remove('is-invalid'); //bootstrap
     feedbackArea.style.display="none";
 
+    // submitButton.disabled = false;
+
+    //Username is valid until told otherwise
+    usernameValid = true;
+
+    // If one text is invalid, disable button
+    if(passwordValid == false || emailValid == false){
+        submitButton.disabled = true;
+    }else{
+        submitButton.disabled = false;
+    }
     if(usernameVal.length > 0)
     {
         fetch('/authentication/validate-username', {
@@ -83,6 +111,9 @@ usernameField.addEventListener('keyup', (e) => {
 
             // show error in frontend
             if(data.username_error){
+                // submitButton.removeAttribute('disabled');
+                submitButton.disabled = true;
+                usernameValid = false;
                 usernameField.classList.add('is-invalid'); //bootstrap
                 feedbackArea.style.display="block";
                 feedbackArea.innerHTML=`<p> ${data.username_error} </p>`;

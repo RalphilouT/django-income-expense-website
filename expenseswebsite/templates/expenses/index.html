@@ -1,25 +1,32 @@
 {% extends "base.html" %}
+{% block "account" %}
+{% include "partials/_logout.html" %}
+{% endblock "account" %}
 {% block content %}
-<h1>Expense List</h2>
+<div class="container">
+    {% include "partials/_messages.html" %}
+    <h1>Expense List</h2>
+    <ul class="list-group">
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
+        <li class="list-group-item"> Bought Soda </li>
 
-<ul class="list-group">
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
-    <li class="list-group-item"> Bought Soda </li>
+    </ul>
 
-</ul>
+</div>
 {% endblock content %}
+    
 
 

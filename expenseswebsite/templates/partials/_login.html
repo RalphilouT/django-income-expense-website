@@ -1,0 +1,21 @@
+{% load static %}
+<li class="nav-item text-nowrap mt-3 ml-2">
+    <form action="{% url 'login' %}" method="GET">
+      {% csrf_token %}
+      <input
+        class="nav-item text text-capitalize"
+        type="submit"
+        value="Sign in"
+      />
+    </form>
+  </li>
+  <li class="nav-item text-nowrap mt-3 ml-2">
+    <form action="{% url 'register' %}" method="GET">
+      {% csrf_token %}
+      <input
+        class="nav-item text text-capitalize"
+        type="submit"
+        value="Sign up"
+      />
+    </form>
+  </li>

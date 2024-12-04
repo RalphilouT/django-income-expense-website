@@ -14,6 +14,7 @@ import os
 from pathlib import Path
 import environ
 # import django_heroku
+from django.contrib import messages
 
 root = Path(__file__).parent.parent
 env = environ.Env(DEBUG=(bool, False),)
@@ -144,11 +145,25 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'expenseswebsite/static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
+# Email Settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.environ.get('EMAIL_HOST')
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER') #user authenticates behalf of host
+EMAIL_USE_TLS = True #transfer security
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER') #authenticated sender
+EMAIL_PORT = 587
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # django_heroku.settings(locals())
+
+MESSAGE_TAGS={
+    messages.ERROR:'danger'
+}
 
 

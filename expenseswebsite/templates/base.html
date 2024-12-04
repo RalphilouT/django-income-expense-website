@@ -29,16 +29,17 @@
           </span>
         </li>
 
-        <li class="nav-item text-nowrap mt-3 ml-2">
-          <form action="" method="POST">
+        {% comment %} <li class="nav-item text-nowrap mt-3 ml-2">
+          <form action="{% url 'logout' %}" method="POST">
             {% csrf_token %}
             <input
-              class="text text-capitalize"
+              class="nav-item text text-capitalize"
               type="submit"
               value="Sign out"
             />
           </form>
-        </li>
+        </li> {% endcomment %}
+        {% block "account" %}{% endblock "account" %}
       </ul>
     </nav>
 

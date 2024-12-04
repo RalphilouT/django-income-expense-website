@@ -1,0 +1,10 @@
+{% load static %}
+<form action="{% url 'home' %}" method="GET">
+    {% csrf_token %}
+    <input
+    class="nav-item text text-capitalize"
+    type="submit"
+    value="Home"
+    />
+</form>
+  
